@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "build:cloudflare": "pnpm run build && npx @cloudflare/next-on-pages@latest",
+    "deploy": "pnpm run build:cloudflare && wrangler pages deploy ./out",
     "dev": "pnpm gen:runtime && pnpm gen:manifest && next dev -H 0.0.0.0",
     "pages:build": "pnpm run build",
     "build": "pnpm gen:runtime && pnpm gen:manifest && next build",
